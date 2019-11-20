@@ -4,5 +4,5 @@ ports:
 
 tasks:
     - command: >
-          pyenv globla 3.7.4 &&
+          pyenv global 3.7.4 &&
           pipenv shell
