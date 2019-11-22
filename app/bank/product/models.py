@@ -1,6 +1,12 @@
 from django.db import models
+from bank.branch.models import Branch
 
 class Product(models.Model):
+    provider = models.ForeignKey(
+        Branch,
+        on_delete=models.CASCADE,
+        related_name='provider',
+    )
     services = (
         ('checking', 'CHECKING'),
         ('savings', 'SAVINGS'),
@@ -14,5 +20,7 @@ class Product(models.Model):
         default=services[0],
     )
 
+
+
     def __str__(self):
-        return(f"Product: {self.product_options}")
+        return(f"Bank: {self.provider.bank} | Product: {self.product_options}")
